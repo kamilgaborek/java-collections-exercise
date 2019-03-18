@@ -70,5 +70,19 @@ public class AppWorker {
         return stringOfMap;
     }
 
+    public FileOperator getFileOperator() {
+        return fileOperator;
+    }
 
+    public void setFileOperator(FileOperator fileOperator) {
+        this.fileOperator = fileOperator;
+    }
+
+    public Map<Character, TreeSet<String>> getMapOfAnswer() {
+        return mapOfAnswer;
+    }
+
+    public void setMapOfAnswer(Map<Character, TreeSet<String>> mapOfAnswer) {
+        this.mapOfAnswer = mapOfAnswer;
+    }
 }

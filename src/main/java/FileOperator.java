@@ -16,9 +16,6 @@ public class FileOperator {
         catch(FileNotFoundException ex) {
             System.out.println("Unable to open file: " +filePath);
         }
-        catch(IOException ex) {
-            System.out.println("Error caused by file: " +filePath);
-        }
 
         return bufferedReader;
     }
