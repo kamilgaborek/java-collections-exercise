@@ -13,20 +13,22 @@ public class AppWorker {
         this.fileOperator = fileOperator;
     }
 
+
+    //główna problematyka która mogła by byc odpowiedzią na to zadanie
     public Map<Character, TreeSet<String>> getMapOfWords(String fileName){
 
         BufferedReader bufferedReader= fileOperator.getFileReader(fileName);
         mapOfAnswer=new TreeMap<Character, TreeSet<String>>();
         Pattern p = Pattern.compile("[a-zA-Z]+");
-        Matcher m1=null;
+        Matcher matcherSingleWord=null;
         String line=null;
 
         try {
             while ((line = bufferedReader.readLine()) != null) {
-                m1 = p.matcher(line);
+                matcherSingleWord = p.matcher(line);
 
-                while (m1.find()) {
-                    String matchedWord = m1.group().toLowerCase();
+                while (matcherSingleWord.find()) {
+                    String matchedWord = matcherSingleWord.group().toLowerCase();
                     for (char singleChar : matchedWord.toCharArray()) {
                         if (mapOfAnswer.containsKey(singleChar)) {
                             mapOfAnswer.get(singleChar).add(matchedWord);
@@ -38,13 +40,16 @@ public class AppWorker {
                     }
                 }
             }
-            bufferedReader.close();
         }catch (IOException e){
             System.out.println("Can not read from file:" +fileName);
         }
-
-
-
+        finally {
+            try{
+                bufferedReader.close();
+            } catch(IOException e){
+                System.out.println("Trouble with connection closing");
+            }
+        }
         return mapOfAnswer;
     }
 
