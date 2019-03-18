@@ -58,6 +58,7 @@ public class AppWorker {
     }
 
     public String mapToString(){
+        //
         StringBuilder stringBuilder = new StringBuilder("");
         for (Map.Entry<Character, TreeSet<String>> entry : mapOfAnswer.entrySet()) {
             stringBuilder.append(entry.getKey() + ": ");
