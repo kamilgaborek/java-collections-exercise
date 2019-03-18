@@ -1,0 +1,20 @@
+a: company, mistakes, sabre, that
+b: be, sabre
+c: company, exercise, mock
+d: employed
+e: be, employed, exercise, file, hope, mistakes, sabre, test
+f: file, for
+h: hope, that, this
+i: exercise, file, i, is, mistakes, this, will
+k: mistakes, mock
+l: employed, file, will
+m: company, employed, mistakes, mock
+n: company
+o: company, employed, for, hope, mock
+p: company, employed, hope
+r: exercise, for, sabre
+s: exercise, is, mistakes, sabre, test, this
+t: mistakes, test, that, this
+w: will
+x: exercise
+y: company, employed
