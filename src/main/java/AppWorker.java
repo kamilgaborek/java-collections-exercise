@@ -19,13 +19,13 @@ public class AppWorker {
 
         BufferedReader bufferedReader= fileOperator.getFileReader(fileName);
         mapOfAnswer=new TreeMap<Character, TreeSet<String>>();
-        Pattern p = Pattern.compile("[a-zA-Z]+");
+        Pattern pattern = Pattern.compile("[a-zA-Z]+");
         Matcher matcherSingleWord=null;
         String line=null;
 
         try {
             while ((line = bufferedReader.readLine()) != null) {
-                matcherSingleWord = p.matcher(line);
+                matcherSingleWord = pattern.matcher(line);
 
                 while (matcherSingleWord.find()) {
                     String matchedWord = matcherSingleWord.group().toLowerCase();
@@ -58,20 +58,20 @@ public class AppWorker {
     }
 
     public String mapToString(){
-        String stringOfMap="";
+        StringBuilder stringBuilder = new StringBuilder("");
         for (Map.Entry<Character, TreeSet<String>> entry : mapOfAnswer.entrySet()) {
-            stringOfMap+=entry.getKey() + ": ";
+            stringBuilder.append(entry.getKey() + ": ");
             TreeSet<String> tmpSet=entry.getValue();
             Iterator iterator= tmpSet.iterator();
             while(iterator.hasNext()){
-                stringOfMap+=iterator.next();
+                stringBuilder.append(iterator.next());
                 if(iterator.hasNext()){
-                    stringOfMap+=", ";
+                    stringBuilder.append(", ");
                 }
             }
-            stringOfMap+="\n";
+            stringBuilder.append("\n");
         }
-        return stringOfMap;
+        return stringBuilder.toString();
     }
 
     public FileOperator getFileOperator() {
