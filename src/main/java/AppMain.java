@@ -3,10 +3,10 @@ import java.io.IOException;
 public class AppMain {
     public static void main(String[] args) throws IOException {
 
-        AppWorker zw=new AppWorker(new FileOperator());
-        zw.getMapOfWords("mockFile.txt");
-        zw.saveMapToFile("answerFile.txt");
-        System.out.println(zw.mapToString());
+        AppWorker appWorker=new AppWorker(new FileOperator());
+        appWorker.getMapOfWords("mockFile.txt");
+        appWorker.saveMapToFile("answerFile.txt");
+        System.out.println(appWorker.mapToString());
 
     }
 

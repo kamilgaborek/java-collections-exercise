@@ -21,23 +21,30 @@ public class AppWorker {
         Matcher m1=null;
         String line=null;
 
-        while((line=bufferedReader.readLine())!=null) {
-             m1= p.matcher(line);
+        try {
+            while ((line = bufferedReader.readLine()) != null) {
+                m1 = p.matcher(line);
 
-            while (m1.find()) {
-                String matchedWord = m1.group().toLowerCase();
-                for (char singleChar : matchedWord.toCharArray()) {
-                    if (mapOfAnswer.containsKey(singleChar)) {
-                        mapOfAnswer.get(singleChar).add(matchedWord);
-                    } else {
-                        Set<String> setOfWords = new TreeSet<String>();
-                        setOfWords.add(matchedWord);
-                        mapOfAnswer.put(singleChar, (TreeSet<String>) setOfWords);
+                while (m1.find()) {
+                    String matchedWord = m1.group().toLowerCase();
+                    for (char singleChar : matchedWord.toCharArray()) {
+                        if (mapOfAnswer.containsKey(singleChar)) {
+                            mapOfAnswer.get(singleChar).add(matchedWord);
+                        } else {
+                            Set<String> setOfWords = new TreeSet<String>();
+                            setOfWords.add(matchedWord);
+                            mapOfAnswer.put(singleChar, (TreeSet<String>) setOfWords);
+                        }
                     }
                 }
             }
+        }catch (IOException e){
+            System.out.println("Can not read from file:" +fileName);
         }
-        bufferedReader.close();
+        finally {
+            bufferedReader.close();
+        }
+
 
         return mapOfAnswer;
     }
