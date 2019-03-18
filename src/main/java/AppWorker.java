@@ -13,7 +13,7 @@ public class AppWorker {
         this.fileOperator = fileOperator;
     }
 
-    public Map<Character, TreeSet<String>> getMapOfWords(String fileName) throws IOException {
+    public Map<Character, TreeSet<String>> getMapOfWords(String fileName){
 
         BufferedReader bufferedReader= fileOperator.getFileReader(fileName);
         mapOfAnswer=new TreeMap<Character, TreeSet<String>>();
@@ -38,12 +38,11 @@ public class AppWorker {
                     }
                 }
             }
+            bufferedReader.close();
         }catch (IOException e){
             System.out.println("Can not read from file:" +fileName);
         }
-        finally {
-            bufferedReader.close();
-        }
+
 
 
         return mapOfAnswer;
