@@ -49,8 +49,8 @@ public class AppWorker {
         return mapOfAnswer;
     }
 
-    public void saveMapToFile(String fileName){
-        fileOperator.saveStringToFile(mapToString(),fileName);
+    public boolean saveMapToFile(String fileName){
+        return fileOperator.saveStringToFile(mapToString(),fileName);
     }
 
     public String mapToString(){

@@ -44,6 +44,10 @@ public class AppWorkerTest {
         Assert.assertEquals(mapOfAnswer, appWorkerTest.getMapOfWords("mockFileTest.txt"));
     }
 
+    @Test
+    public void saveMapToFileTest(){
+        Assert.assertTrue(appWorkerTest.saveMapToFile("answerFileTest.txt"));
+    }
 
     @Test
     public void mapToStringTest() {
